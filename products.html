@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahnoor Furniture | Products</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #6d4c41;
+      --secondary-color: #d7ccc8;
+      --accent-color: #8d6e63;
+      --light-color: #f5f5f5;
+      --dark-color: #333;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .navbar {
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+    
+    .product-img {
+      height: 250px;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    
+    .product-img:hover {
+      transform: scale(1.02);
+    }
+    
+    .section-padding { 
+      padding: 80px 0;
+    }
+    
+    .section-title {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 50px;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--primary-color);
+    }
+    
+    .card {
+      border: none;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      height: 100%;
+      margin-bottom: 30px;
+    }
+    
+    .card:hover {
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      transform: translateY(-5px);
+    }
+    
+    .card-body {
+      padding: 25px;
+    }
+    
+    .card-title {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+    
+    .btn-outline-primary {
+      color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+    
+    .btn-outline-primary:hover {
+      background-color: var(--primary-color);
+      color: white;
+    }
+    
+    .btn-whatsapp {
+      background-color: #25D366;
+      color: white;
+    }
+    
+    .btn-whatsapp:hover {
+      background-color: #128C7E;
+      color: white;
+    }
+    
+    .breadcrumb {
+      background-color: transparent;
+      padding: 0;
+    }
+    
+    .breadcrumb-item.active {
+      color: var(--primary-color);
+      font-weight: 500;
+    }
+    
+    .filter-section {
+      background-color: var(--light-color);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+    
+    .filter-title {
+      color: var(--primary-color);
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    
+    .form-check-label {
+      cursor: pointer;
+    }
+    
+    .modal-img {
+      max-width: 100%;
+      height: auto;
+      max-height: 70vh;
+    }
+    
+    /* Improved responsive styles */
+    @media (max-width: 992px) {
+      .product-img {
+        height: 220px;
+      }
+      
+      .card-body {
+        padding: 20px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .section-padding {
+        padding: 60px 0;
+      }
+      
+      .product-img {
+        height: 200px;
+      }
+      
+      .navbar-brand {
+        font-size: 1.3rem;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .card-body {
+        padding: 15px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .section-padding {
+        padding: 50px 0;
+      }
+      
+      .product-img {
+        height: 180px;
+      }
+      
+      .section-title {
+        font-size: 1.6rem;
+        margin-bottom: 40px;
+      }
+      
+      .section-title::after {
+        bottom: -12px;
+        width: 60px;
+      }
+      
+      .card-body {
+        padding: 15px;
+      }
+      
+      .btn-whatsapp {
+        font-size: 0.8rem;
+        padding: 0.25rem 0.5rem;
+      }
+      
+      .modal-dialog {
+        margin: 10px;
+      }
+    }
+    
+    @media (max-width: 400px) {
+      .product-img {
+        height: 160px;
+      }
+      
+      .navbar-brand {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-couch me-2"></i>Manoor Furniture
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="centertable.html">Center Table</a></li>
+          <li class="nav-item"><a class="nav-link" href="diningtabel.html">Dining Table</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="py-3 bg-light">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Products</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container">
+      <h1 class="text-center section-title mb-5">Our Furniture Collection</h1>
+      
+      <div class="row mb-5">
+        <div class="col-md-6">
+          <p class="lead">Discover our curated selection of premium furniture for every room in your home.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <div class="dropdown">
+            <button class="btn btn-outline-primary dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown">
+              Sort By: Featured
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Featured</a></li>
+              <li><a class="dropdown-item" href="#">Price: Low to High</a></li>
+              <li><a class="dropdown-item" href="#">Price: High to Low</a></li>
+              <li><a class="dropdown-item" href="#">Newest Arrivals</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <!-- Product 1 -->
+        <div class="col-md-4 col-sm-6">
+          <div class="card">
+            <img src="images/picture1.png" class="card-img-top product-img" alt="Luxury Sofa" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImageModal('images/picture1.png', 'Luxury Sofa')">
+            <div class="card-body">
+              <h5 class="card-title">Luxury Sofa</h5>
+              <p class="card-text">Experience ultimate comfort with our premium sofa collection, designed for both style and relaxation.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-primary">Rs. 174,999</span>
+                <a href="https://wa.me/923401113002?text=I'm%20interested%20in%20the%20Luxury%20Sofa" class="btn btn-sm btn-whatsapp">
+                  <i class="fab fa-whatsapp me-1"></i> Talk to Experts
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 2 -->
+        <div class="col-md-4 col-sm-6">
+          <div class="card">
+            <img src="images/picture2.jpeg" class="card-img-top product-img" alt="Dining Table Set" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImageModal('images/picture2.jpeg', 'Dining Table Set')">
+            <div class="card-body">
+              <h5 class="card-title">Dining Table Set</h5>
+              <p class="card-text">Gather your loved ones around our elegant dining sets, perfect for memorable family meals.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-primary">Rs. 185,999</span>
+                <a href="https://wa.me/923401113002?text=I'm%20interested%20in%20the%20Dining%20Table%20Set" class="btn btn-sm btn-whatsapp">
+                  <i class="fab fa-whatsapp me-1"></i> Talk to Experts
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 3 -->
+        <div class="col-md-4 col-sm-6">
+          <div class="card">
+            <img src="images/picture3.webp" class="card-img-top product-img" alt="King Size Bed" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImageModal('images/picture3.webp', 'King Size Bed')">
+            <div class="card-body">
+              <h5 class="card-title">King Size Bed</h5>
+              <p class="card-text">Transform your bedroom into a luxury retreat with our handcrafted, premium quality beds.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-primary">Rs. 154,999</span>
+                <a href="https://wa.me/923401113002?text=I'm%20interested%20in%20the%20King%20Size%20Bed" class="btn btn-sm btn-whatsapp">
+                  <i class="fab fa-whatsapp me-1"></i> Talk to Experts
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 4 -->
+        <div class="col-md-4 col-sm-6">
+          <div class="card">
+            <img src="images/picture4.webp" class="card-img-top product-img" alt="Modern Armchair" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImageModal('images/picture4.webp', 'Modern Armchair')">
+            <div class="card-body">
+              <h5 class="card-title">Modern Armchair</h5>
+              <p class="card-text">Add a touch of elegance to your living space with our comfortable and stylish armchairs.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-primary">Rs. 254,999</span>
+                <a href="https://wa.me/923401113002?text=I'm%20interested%20in%20the%20Modern%20Armchair" class="btn btn-sm btn-whatsapp">
+                  <i class="fab fa-whatsapp me-1"></i> Talk to Experts
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 5 -->
+        <div class="col-md-4 col-sm-6">
+          <div class="card">
+            <img src="images/picture5.jpg" class="card-img-top product-img" alt="Coffee Table" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImageModal('images/picture5.jpg', 'Coffee Table')">
+            <div class="card-body">
+              <h5 class="card-title">Coffee Table</h5>
+              <p class="card-text">Functional and stylish centerpiece for your living room, available in various finishes.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-primary">Rs. 154,999</span>
+                <a href="https://wa.me/923401113002?text=I'm%20interested%20in%20the%20Coffee%20Table" class="btn btn-sm btn-whatsapp">
+                  <i class="fab fa-whatsapp me-1"></i> Talk to Experts
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 6 -->
+        <div class="col-md-4 col-sm-6">
+          <div class="card">
+            <img src="images/picture6.jpg" class="card-img-top product-img" alt="Wardrobe" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImageModal('images/picture6.jpg', 'Premium Wardrobe')">
+            <div class="card-body">
+              <h5 class="card-title">Premium Wardrobe</h5>
+              <p class="card-text">Spacious and well-organized storage solution with premium finishes and durable construction.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-primary">Rs. 254,999</span>
+                <a href="https://wa.me/923401113002?text=I'm%20interested%20in%20the%20Premium%20Wardrobe" class="btn btn-sm btn-whatsapp">
+                  <i class="fab fa-whatsapp me-1"></i> Talk to Experts
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 7 -->
+        <div class="col-md-4 col-sm-6">
+          <div class="card">
+            <img src="images/picture7.webp" class="card-img-top product-img" alt="Luxury Sofa Set" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImageModal('images/picture7.webp', 'Luxury Sofa Set')">
+            <div class="card-body">
+              <h5 class="card-title">Luxury Sofa Set</h5>
+              <p class="card-text">Complete your living room with this elegant sofa set that combines comfort and style.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-primary">Rs. 174,999</span>
+                <a href="https://wa.me/923401113002?text=I'm%20interested%20in%20the%20Luxury%20Sofa%20Set" class="btn btn-sm btn-whatsapp">
+                  <i class="fab fa-whatsapp me-1"></i> Talk to Experts
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 8 -->
+        <div class="col-md-4 col-sm-6">
+          <div class="card">
+            <img src="images/picture8.webp" class="card-img-top product-img" alt="Executive Dining Set" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImageModal('images/picture8.webp', 'Executive Dining Set')">
+            <div class="card-body">
+              <h5 class="card-title">Executive Dining Set</h5>
+              <p class="card-text">Impress your guests with this sophisticated dining set that seats eight comfortably.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-primary">Rs. 224,999</span>
+                <a href="https://wa.me/923401113002?text=I'm%20interested%20in%20the%20Executive%20Dining%20Set" class="btn btn-sm btn-whatsapp">
+                  <i class="fab fa-whatsapp me-1"></i> Talk to Experts
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 9 -->
+        <div class="col-md-4 col-sm-6">
+          <div class="card">
+            <img src="images/picture9.jpg" class="card-img-top product-img" alt="Royal King Bed" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImageModal('images/picture9.jpg', 'Royal King Bed')">
+            <div class="card-body">
+              <h5 class="card-title">Royal King Bed</h5>
+              <p class="card-text">Sleep like royalty with this hand-carved king bed featuring premium upholstery.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-primary">Rs. 164,999</span>
+                <a href="https://wa.me/923401113002?text=I'm%20interested%20in%20the%20Royal%20King%20Bed" class="btn btn-sm btn-whatsapp">
+                  <i class="fab fa-whatsapp me-1"></i> Talk to Experts
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 10 -->
+        <div class="col-md-4 col-sm-6">
+          <div class="card">
+            <img src="images/picture10.webp" class="card-img-top product-img" alt="Designer Armchair" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImageModal('images/picture10.webp', 'Designer Armchair')">
+            <div class="card-body">
+              <h5 class="card-title">Designer Armchair</h5>
+              <p class="card-text">Make a statement with this contemporary armchair featuring premium materials.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-primary">Rs. 199,999</span>
+                <a href="https://wa.me/923401113002?text=I'm%20interested%20in%20the%20Designer%20Armchair" class="btn btn-sm btn-whatsapp">
+                  <i class="fab fa-whatsapp me-1"></i> Talk to Experts
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 11 -->
+        <div class="col-md-4 col-sm-6">
+          <div class="card">
+            <img src="images/picture13.webp" class="card-img-top product-img" alt="Modern Coffee Table" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImageModal('images/picture13.webp', 'Modern Coffee Table')">
+            <div class="card-body">
+              <h5 class="card-title">Modern Coffee Table</h5>
+              <p class="card-text">Sleek and functional coffee table with tempered glass top and metal base.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-primary">Rs. 79,999</span>
+                <a href="https://wa.me/923401113002?text=I'm%20interested%20in%20the%20Modern%20Coffee%20Table" class="btn btn-sm btn-whatsapp">
+                  <i class="fab fa-whatsapp me-1"></i> Talk to Experts
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 12 -->
+        <div class="col-md-4 col-sm-6">
+          <div class="card">
+            <img src="images/picture14.jpg" class="card-img-top product-img" alt="Walk-in Wardrobe" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImageModal('images/picture14.jpg', 'Walk-in Wardrobe')">
+            <div class="card-body">
+              <h5 class="card-title">Walk-in Wardrobe</h5>
+              <p class="card-text">Customizable wardrobe system with ample storage and premium finishes.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-primary">Rs. 89,999</span>
+                <a href="https://wa.me/923401113002?text=I'm%20interested%20in%20the%20Walk-in%20Wardrobe" class="btn btn-sm btn-whatsapp">
+                  <i class="fab fa-whatsapp me-1"></i> Talk to Experts
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-primary text-white">
+    <div class="container text-center">
+      <h2 class="mb-4">Need Help Choosing?</h2>
+      <p class="lead mb-4">Our design consultants can help you select the perfect pieces for your space.</p>
+      <a href="contact.html" class="btn btn-light btn-lg">Book Free Consultation</a>
+    </div>
+  </section>
+
+  <footer class="bg-dark text-white py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h5 class="mb-3"><i class="fas fa-couch me-2"></i>Manoor Furniture</h5>
+          <p>Creating beautiful spaces with quality furniture since 2010. Your comfort is our priority.</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/923401113002"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-md-2 mb-4 mb-md-0">
+          <h5 class="mb-3">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="index.html" class="text-white">Home</a></li>
+            <li class="mb-2"><a href="products.html" class="text-white">Products</a></li>
+            <li class="mb-2"><a href="contact.html" class="text-white">Contact</a></li>
+            <li class="mb-2"><a href="#" class="text-white">About Us</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-4 mb-md-0">
+          <h5 class="mb-3">Contact Info</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 123 Furniture St, Karachi</li>
+            <li class="mb-2"><i class="fas fa-phone me-2"></i> (021) 123-4567</li>
+            <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@manoorfurniture.com</li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5 class="mb-3">Showroom Hours</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2">Monday - Friday: 10AM - 8PM</li>
+            <li class="mb-2">Saturday: 10AM - 6PM</li>
+            <li class="mb-2">Sunday: 12PM - 5PM</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="mt-4 mb-3">
+      <div class="text-center">
+        <p class="mb-0">&copy; 2023 Manoor Furniture. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="imageModalLabel">Product Image</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="" class="modal-img img-fluid" id="modalImage" alt="Product Image">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function showImageModal(imageSrc, title) {
+      document.getElementById('modalImage').src = imageSrc;
+      document.getElementById('imageModalLabel').textContent = title;
+    }
+  </script>
+</body>
+</html>

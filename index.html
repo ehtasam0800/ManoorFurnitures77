@@ -1,0 +1,491 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manoor Furniture | Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #6d4c41;
+      --secondary-color: #d7ccc8;
+      --accent-color: #8d6e63;
+      --light-color: #f5f5f5;
+      --dark-color: #333;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+    }
+    
+    .navbar {
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 15px 0;
+    }
+    
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+    
+    .hero {
+      background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+      padding: 120px 0;
+      color: var(--dark-color);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('images/hero-pattern.png') repeat;
+      opacity: 0.05;
+    }
+    
+    .hero h1 {
+      font-weight: 800;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    
+    .hero .lead {
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+    
+    .btn-outline-primary {
+      color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+    
+    .btn-outline-primary:hover {
+      background-color: var(--primary-color);
+      color: white;
+    }
+    
+    .section-padding { 
+      padding: 80px 0;
+      position: relative;
+    }
+    
+    .section-title {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 50px;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--primary-color);
+    }
+    
+    .feature-box {
+      background-color: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      height: 100%;
+      border-top: 3px solid var(--primary-color);
+    }
+    
+    .feature-box:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
+    
+    .testimonials {
+      background-color: var(--light-color);
+    }
+    
+    .testimonial-card {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .testimonial-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--primary-color);
+    }
+    
+    .newsletter {
+      background-color: var(--primary-color);
+      color: white;
+    }
+    
+    .newsletter input {
+      border-radius: 50px;
+      border: none;
+      padding: 15px 20px;
+    }
+    
+    .newsletter .btn {
+      border-radius: 50px;
+      padding: 15px 30px;
+    }
+    
+    footer {
+      background-color: var(--dark-color);
+      color: white;
+      padding: 30px 0;
+    }
+    
+    .social-icons a {
+      color: white;
+      font-size: 1.5rem;
+      margin: 0 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icons a:hover {
+      color: var(--secondary-color);
+      transform: translateY(-3px);
+    }
+    
+    /* Image modal styles */
+    .modal-img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 80px 0;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .section-padding {
+        padding: 60px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-couch me-2"></i>Manoor Furniture
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+            <li class="nav-item"><a class="nav-link" href="centertable.html">Center Tabel</a></li>
+            <li class="nav-item"><a class="nav-link" href="diningtabel.html">Dining Tabel</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#newsletterModal"><i class="fas fa-envelope"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero text-center">
+    <div class="container">
+      <h1 class="display-4 fw-bold mb-4">Modern & Elegant Furniture</h1>
+      <p class="lead mb-5">Discover comfort and style with Manoor's finest collections crafted for your dream home.</p>
+      <a href="products.html" class="btn btn-light btn-lg me-2">Explore Products</a>
+      <a href="contact.html" class="btn btn-outline-light btn-lg">Book Consultation</a>
+    </div>
+  </section>
+  
+  <section class="section-padding">
+    <div class="container text-center">
+      <h2 class="section-title">Why Choose Manoor Furniture?</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="feature-box">
+            <div class="feature-icon">
+              <i class="fas fa-pencil-ruler"></i>
+            </div>
+            <h4>Modern Designs</h4>
+            <p>Innovative furniture crafted by top designers for contemporary lifestyles. We blend aesthetics with functionality.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-box">
+            <div class="feature-icon">
+              <i class="fas fa-hammer"></i>
+            </div>
+            <h4>Quality Craftsmanship</h4>
+            <p>Built to last with premium materials and expert craftsmanship. Each piece undergoes rigorous quality checks.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-box">
+            <div class="feature-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <h4>Customer Satisfaction</h4>
+            <p>Trusted by thousands of happy customers across Pakistan with our 5-year warranty and excellent after-sales service.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products Section -->
+  <section class="section-padding bg-light">
+    <div class="container">
+      <h2 class="text-center section-title">Featured Products</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm h-100">
+            <img src="images/picture1.png" class="card-img-top product-img" alt="Luxury Sofa" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImageModal('images/picture1.png', 'Luxury Sofa')">
+            <div class="card-body">
+              <h5 class="card-title">Luxury Sofa</h5>
+              <p class="card-text">Experience ultimate comfort with our premium sofa collection, designed for both style and relaxation.</p>
+              <a href="products.html" class="btn btn-outline-primary">View More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm h-100">
+            <img src="images/picture2.jpeg" class="card-img-top product-img" alt="Dining Table Set" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImageModal('images/picture2.jpeg', 'Dining Table Set')">
+            <div class="card-body">
+              <h5 class="card-title">Dining Table Set</h5>
+              <p class="card-text">Gather your loved ones around our elegant dining sets, perfect for memorable family meals.</p>
+              <a href="products.html" class="btn btn-outline-primary">View More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm h-100">
+            <img src="images/picture3.webp" class="card-img-top product-img" alt="King Size Bed" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImageModal('images/picture3.webp', 'King Size Bed')">
+            <div class="card-body">
+              <h5 class="card-title">King Size Bed</h5>
+              <p class="card-text">Transform your bedroom into a luxury retreat with our handcrafted, premium quality beds.</p>
+              <a href="products.html" class="btn btn-outline-primary">View More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-5">
+        <a href="products.html" class="btn btn-primary btn-lg">View All Products</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="section-padding testimonials">
+    <div class="container">
+      <h2 class="text-center section-title">What Our Customers Say</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="testimonial-card h-100">
+            <div class="text-center mb-4">
+              <img src="https://randomuser.me/api/portraits/women/32.jpg" class="testimonial-img" alt="Customer">
+            </div>
+            <p class="mb-4">"The quality of Manoor's furniture exceeded my expectations. My living room has never looked better!"</p>
+            <h5 class="mb-1">Ayesha Khan</h5>
+            <div class="text-warning">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card h-100">
+            <div class="text-center mb-4">
+              <img src="https://randomuser.me/api/portraits/men/45.jpg" class="testimonial-img" alt="Customer">
+            </div>
+            <p class="mb-4">"Excellent customer service and beautiful designs. Will definitely shop here again for my new home."</p>
+            <h5 class="mb-1">Ahmed Raza</h5>
+            <div class="text-warning">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card h-100">
+            <div class="text-center mb-4">
+              <img src="https://randomuser.me/api/portraits/women/68.jpg" class="testimonial-img" alt="Customer">
+            </div>
+            <p class="mb-4">"The delivery was prompt and the assembly team was very professional. Highly recommended!"</p>
+            <h5 class="mb-1">Fatima Ali</h5>
+            <div class="text-warning">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="section-padding newsletter">
+    <div class="container text-center">
+      <h2 class="text-white mb-4">Subscribe to Our Newsletter</h2>
+      <p class="lead text-white mb-5">Get updates on new arrivals, special offers, and design inspiration.</p>
+      <form class="mx-auto" style="max-width: 500px;">
+        <div class="input-group mb-3">
+          <input type="email" class="form-control" placeholder="Your email address" required>
+          <button class="btn btn-light" type="submit">Subscribe</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Contact CTA Section -->
+  <section class="section-padding">
+    <div class="container text-center">
+      <h2 class="section-title">Ready to Transform Your Space?</h2>
+      <p class="lead mb-5">Our design consultants are ready to help you create your dream home.</p>
+      <a href="contact.html" class="btn btn-primary btn-lg me-3">Book Consultation</a>
+      <a href="tel:+923001234567" class="btn btn-outline-primary btn-lg"><i class="fas fa-phone me-2"></i>Call Now</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h5 class="mb-3"><i class="fas fa-couch me-2"></i>Manoor Furniture</h5>
+          <p>Creating beautiful spaces with quality furniture since 2010. Your comfort is our priority.</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-md-2 mb-4 mb-md-0">
+          <h5 class="mb-3">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="index.html" class="text-white">Home</a></li>
+            <li class="mb-2"><a href="products.html" class="text-white">Products</a></li>
+            <li class="mb-2"><a href="contact.html" class="text-white">Contact</a></li>
+            <li class="mb-2"><a href="#" class="text-white">About Us</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-4 mb-md-0">
+          <h5 class="mb-3">Contact Info</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 123 Furniture St, Karachi</li>
+            <li class="mb-2"><i class="fas fa-phone me-2"></i> (021) 123-4567</li>
+            <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@manoorfurniture.com</li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5 class="mb-3">Showroom Hours</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2">Mon-Fri: 10AM - 8PM</li>
+            <li class="mb-2">Sat: 10AM - 6PM</li>
+            <li class="mb-2">Sun: 12PM - 5PM</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="my-4 bg-secondary">
+      <div class="text-center">
+        &copy; 2025 Manoor Furniture. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Image Modal -->
+  <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="imageModalLabel">Product Image</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="" class="modal-img img-fluid" id="modalImage" alt="Product Image">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Newsletter Modal -->
+  <div class="modal fade" id="newsletterModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Join Our Newsletter</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Subscribe to get exclusive offers, design tips, and new product announcements.</p>
+          <form>
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Your Name" required>
+            </div>
+            <div class="mb-3">
+              <input type="email" class="form-control" placeholder="Email Address" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function showImageModal(imageSrc, title) {
+      document.getElementById('modalImage').src = imageSrc;
+      document.getElementById('imageModalLabel').textContent = title;
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+      var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+      });
+    });
+  </script>
+</body>
+</html>
